@@ -1,4 +1,1 @@
-Docker: Utilização prática no cenário de Microsserviços
-Denilson Bonatti, Instrutor - Digital Innovation One
-
-Muito se tem falado de containers e consequentemente do Docker no ambiente de desenvolvimento. Mas qual a real função de um container no cenários de microsserviços? Qual a real função e quais exemplos práticos podem ser aplicados no dia a dia? Essas são algumas das questões que serão abordadas de forma prática pelo Expert Instructor Denilson Bonatti nesta Live Coding. IMPORTANTE: Agora nossas Live Codings acontecerão no canal oficial da dio._ no YouTube. Então, já corre lá e ative o lembrete! Pré-requisitos: Conhecimentos básicos em Linux, Docker e AWS.
+A live apresenta o uso prático do **Docker em arquiteturas de microsserviços**, explicando a função dos containers, seus benefícios e aplicações no dia a dia do desenvolvimento. Denilson Bonatti demonstra, por meio de exemplos práticos, como o Docker facilita a padronização, escalabilidade e implantação de microsserviços, especialmente em ambientes como a **AWS**. O conteúdo é voltado para quem já possui conhecimentos básicos em **Linux, Docker e AWS**.
