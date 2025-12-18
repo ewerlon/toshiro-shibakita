@@ -1,48 +1,52 @@
 <html>
-
 <head>
-<title>Exemplo PHP</title>
+    <title>Exemplo PHP</title>
 </head>
 <body>
 
 <?php
 ini_set("display_errors", 1);
+error_reporting(E_ALL);
 header('Content-Type: text/html; charset=iso-8859-1');
-
-
 
 echo 'Versao Atual do PHP: ' . phpversion() . '<br>';
 
 $servername = "54.234.153.24";
-$username = "root";
-$password = "Senha123";
-$database = "meubanco";
+$username   = "root";
+$password   = "Senha123";
+$database   = "meubanco";
 
-// Criar conexão
-
-
+/* Criar conexão */
 $link = new mysqli($servername, $username, $password, $database);
 
-/* check connection */
-if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
-    exit();
+/* Verificar conexão */
+if ($link->connect_error) {
+    die("Falha na conexão: " . $link->connect_error);
 }
 
-$valor_rand1 =  rand(1, 999);
-$valor_rand2 = strtoupper(substr(bin2hex(random_bytes(4)), 1));
-$host_name = gethostname();
+/* Gerar dados aleatórios */
+$cliente_id = rand(1, 999);
+$valor_rand = strtoupper(substr(bin2hex(random_bytes(4)), 1));
+$email      = strtolower($valor_rand) . "@teste.com";
 
+/* Query ajustada para a tabela clientes */
+$query = "
+    INSERT INTO clientes 
+        (ClienteID, Nome, Sobrenome, Endereco, Cidade, Email) 
+    VALUES 
+        ('$cliente_id', '$valor_rand', '$valor_rand', '$valor_rand', '$valor_rand', '$email')
+";
 
-$query = "INSERT INTO dados (AlunoID, Nome, Sobrenome, Endereco, Cidade, Host) VALUES ('$valor_rand1' , '$valor_rand2', '$valor_rand2', '$valor_rand2', '$valor_rand2','$host_name')";
-
-
+/* Executar query */
 if ($link->query($query) === TRUE) {
-  echo "New record created successfully";
+    echo "Novo cliente criado com sucesso!";
 } else {
-  echo "Error: " . $link->error;
+    echo "Erro: " . $link->error;
 }
 
+/* Fechar conexão */
+$link->close();
 ?>
+
 </body>
 </html>
